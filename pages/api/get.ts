@@ -12,9 +12,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
     let getUser = {};
     try {
-        const id = req.query;
+        const { id } = req.query;
         const user_id: any = parseInt(id.toString())
-        const users = await requireAccess(user_id)
+        const users = await requireAccess({ user_id })
         if (users.length > 0)
             getUser = await prisma.access.findMany({
                 where: { user_id },

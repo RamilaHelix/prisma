@@ -9,10 +9,10 @@ export default function Home() {
     const [user_id, setuser_id] = useState(0);
 
     useEffect(() => {
-        if (typeof window === "undefined" && user_id > 0) return;
+        if (typeof window === "undefined" || user_id == 0) return;
 
         fetch(`/api/get?id=${user_id}`, {
-        }).then(res => res.json()).then(res => setuser([...res]))
+        }).then(res => res.json()).then(res => setuser(res))
     }, [user_id]);
 
 
@@ -20,7 +20,7 @@ export default function Home() {
         {user.length === 0 ?
             <label><h4>Enter your Id : </h4>
                 <input type="text" value={user_id}
-                    onChange={(e) => parseInt(e.target.value) > 0 && setuser_id(parseInt(e.target.value))}
+                    onChange={(e) => setuser_id(parseInt(e.target.value))}
                 />
             </label>
             :
