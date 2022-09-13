@@ -53,15 +53,18 @@ export default function Home({ projects }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ user_id, id })
-        }).then(res => res.json()).then(res => {
+        }).then(res => {
+            if (res.status >= 400) throw new Error("error"); return res.json()
+        }).then(res => {
+
+
             if (res.msg) {
-                console.log(res)
                 setMgs(res.msg)
                 return res.msg
             }
             setProject(project.filter((proj) => proj.id !== id))
             // setProject(project.filter((proj) => proj !== u))
-        }).catch(err => { console.log("hsdl"); })
+        }).catch(err => { console.log(err); })
     }
 
     return (<>

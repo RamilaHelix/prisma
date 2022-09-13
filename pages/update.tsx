@@ -44,7 +44,7 @@ export default function Home({ projects }) {
 
     const [user_id, setuser_id] = useState(0);
 
-    async function createProject(id: String, data?: Prisma.ProjectCreateInput) {
+    async function updateProject(id: String, data?: Prisma.ProjectCreateInput) {
 
         return fetch(`/api/update`, {
             method: "PATCH", credentials: "include",
@@ -94,7 +94,7 @@ export default function Home({ projects }) {
                             state,
                             date: date ?? null,
                         };
-                        setMgs(await createProject(proj.id, body));
+                        setMgs(await updateProject(proj.id, body));
                     }}
                 >
                     <Form.Group widths="equal">
