@@ -54,16 +54,13 @@ export default function Home({ projects }) {
             },
             body: JSON.stringify({ user_id, id })
         }).then(res => {
-            if (res.status >= 400) throw new Error("error"); return res.json()
+            if (res.status === 400) throw new Error(""); return res.json()
         }).then(res => {
-
-
             if (res.msg) {
                 setMgs(res.msg)
                 return res.msg
             }
             setProject(project.filter((proj) => proj.id !== id))
-            // setProject(project.filter((proj) => proj !== u))
         }).catch(err => { console.log(err); })
     }
 
