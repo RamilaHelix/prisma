@@ -1,0 +1,27 @@
+{
+  "name": "boma-test-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.3.1",
+    "next": "12.2.5",
+    "prisma": "^4.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@types/react": "^18.0.19",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "typescript": "^4.8.3"
+  }
+}
